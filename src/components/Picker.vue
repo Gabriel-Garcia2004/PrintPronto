@@ -81,6 +81,8 @@ export default {
 .container{
   padding: 10px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .v-select {
   margin-bottom: 10px;
@@ -91,6 +93,7 @@ export default {
   top: -275px;
   height: 0px;
 }
+
 @media only screen and (max-width: 600px) {
   .pet { top: -200px; }
 }
@@ -131,13 +134,19 @@ export default {
   outline: none;
   max-width: 30rem;
   padding: 15px;
-  font-size: 1rem;
-  width: 100%;
+  font-size: 1.125rem;
+  font-weight: 700;
+  width: 50%;
   border-radius: 10px;
   font-weight: 500;
-  border: 0;
+  border: 1px solid rgba(0,0,0, .0);
   margin: 20px 0;
   background-color: #98c7f7;
+  transition: .3s ease;
+}
+.button:hover{
+  border: 1px solid rgba(0,0,0, .2);
+
 }
 .green {
   background-color: #b3e7c8ff;
