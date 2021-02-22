@@ -40,4 +40,12 @@ label{
     padding: 5px;
     text-align: center;
 }
+  .frame-img-H{
+    max-width: 500px;
+
+  }
+  .frame-img-V{
+    max-width: 500px;
+    min-width: 250px;
+  }
 </style>

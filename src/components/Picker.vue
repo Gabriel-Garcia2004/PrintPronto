@@ -93,7 +93,10 @@ export default {
   top: -275px;
   height: 0px;
 }
-
+.full {
+  width: 100%;
+  height: 100%;
+}
 @media only screen and (max-width: 600px) {
   .pet { top: -200px; }
 }
