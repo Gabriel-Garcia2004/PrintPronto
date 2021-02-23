@@ -37,6 +37,9 @@
   padding: 10px;
   color: rgb(20, 190, 20);
   font-size: 1.25rem;
+    text-shadow: 1px 2px 0 rgb(0 0 0 / 30%);
+  /* color: #6ec1e4; */
+ color: #448cab;
 }
 .frame-container {
   display: grid;
@@ -51,14 +54,16 @@
 }
 .frame-title {
   border-radius: 50%;
-  background: #98c7f7;
+  background: linear-gradient(200deg, #98c7f7 -100%, #6ec1e4 100%);
   padding: 20px;
   font-size: 1.125rem;
   margin: 10px;
   text-align: center;
   max-width: 300px;
   width: 280px;
+
 }
+
 .container-img {
   max-width: 300px;
   width: 100%;
@@ -87,7 +92,7 @@
   display: grid;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   z-index: 100;
-
+  margin: 0;
 }
 .animal-frame-h{
   max-width: 100%;
@@ -138,12 +143,15 @@
   font-weight: 500;
   border: 1px solid rgba(0, 0, 0, 0);
   margin: 20px auto;
-  background-color: #b3e7c8ff;
+    background: linear-gradient(0deg, #1b5168 -70%, #6ec1e4 100%);
+
   transition: 0.3s ease;
   
 }
 .button-center:hover {
   border: 1px solid rgba(0, 0, 0, 0.2);
+    background: linear-gradient(360deg, #1b5168 -80%, #6ec1e4 100%);
+
 }
 @media (min-width: 650px) {
   .frame-container {

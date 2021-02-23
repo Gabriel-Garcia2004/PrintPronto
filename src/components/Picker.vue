@@ -144,11 +144,14 @@ export default {
   font-weight: 500;
   border: 1px solid rgba(0,0,0, .0);
   margin: 20px 0;
-  background-color: #98c7f7;
+  /* background-color: #98c7f7; */
+    background: linear-gradient(200deg, #98c7f7 -100%, #6ec1e4 100%);
+
   transition: .3s ease;
 }
 .button:hover{
   border: 1px solid rgba(0,0,0, .2);
+    background: linear-gradient(200deg, #1b5168 -500%, #6ec1e4 100%);
 
 }
 .green {
