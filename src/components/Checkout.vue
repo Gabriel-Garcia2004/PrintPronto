@@ -123,7 +123,11 @@ body {
   align-items: center;
 
   /* background: linear-gradient(200deg, #6ec1e4 20%, #1b5168 100%); */
-  background: linear-gradient(0deg, #1b5168 -70%, #6ec1e4 100%);
+  /* background: linear-gradient(0deg, #1b5168 -70%, #6ec1e4 100%);
+  background-size: 200% 200%; */
+  background: linear-gradient(-45deg,  #6ec1e4,#6ec1e4, #23a6d5,#1b5168 );
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
   color: #333;
   border-radius: 3.125rem;
   font-family: "Raleway", sans-serif;
@@ -164,5 +168,16 @@ body {
 .content {
   margin: 20px;
   display: flex;
+}
+@keyframes gradient{
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 80% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 </style>

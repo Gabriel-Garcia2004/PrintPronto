@@ -61,7 +61,6 @@
   text-align: center;
   max-width: 300px;
   width: 280px;
-
 }
 
 .container-img {
@@ -150,7 +149,7 @@
 }
 .button-center:hover {
   border: 1px solid rgba(0, 0, 0, 0.2);
-    background: linear-gradient(360deg, #1b5168 -80%, #6ec1e4 100%);
+    background: linear-gradient(0deg, #1b5168 -50%, #6ec1e4 100%);
 
 }
 @media (min-width: 650px) {

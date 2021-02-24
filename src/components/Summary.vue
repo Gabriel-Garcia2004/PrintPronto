@@ -22,6 +22,7 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    color: #333;
 }
 .span{
     font-size: 1.5rem;
@@ -40,6 +41,13 @@ label{
     margin: 0 10px;
     padding: 5px;
     text-align: center;
+    border: 1.5px solid rgba(0,0,0,.5);
+    border-radius: .2rem;
+    outline: transparent;
+}
+.quantity:hover{
+    border: 1.5px solid #333;
+
 }
   .frame-img-H{
     max-width: 500px;
