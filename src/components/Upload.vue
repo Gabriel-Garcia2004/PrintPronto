@@ -2,7 +2,7 @@
   <div class="container">
     <div class="upload">
       <label class="upload__label" for="file" value="Enviar foto">Escolher arquivo</label>
-      <span v-if="!submitFile()" class="upload__span">Nenhum arquivo selecionado</span>
+      <span v-if="hasFile" class="upload__span">Nenhum arquivo selecionado</span>
       <input type="file" @change="uploadFile()"  id="file" name="file" ref="file" value="Enviar foto" class="upload__button" /> 
     </div>
     <div class="text-container">
@@ -21,7 +21,8 @@ export default {
     return {
       file: '',
       api: 'http://192.168.0.116:8080/',
-      imageUrl: ''
+      imageUrl: '',
+      hasFile: true
     }
     
   },
@@ -43,10 +44,13 @@ export default {
           this.$emit('loadImage', this.imageUrl)
         })
         .catch(error => { alert(error) })
+
     },
 
     uploadFile () {
       this.file = this.$refs.file.files[0]
+        this.hasFile = false
+
     }
   }
 }
