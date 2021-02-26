@@ -162,7 +162,7 @@ export default {
   border: 0;
   margin: 20px 0;
   background: linear-gradient(0deg, #1b5168 -10%, #6ec1e4 220%);
-
+  border: 1px solid transparent;
   transition: .6s ease-in-out;
 }
 .button-cart {

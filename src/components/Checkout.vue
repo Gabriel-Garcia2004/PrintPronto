@@ -58,7 +58,7 @@ export default {
 
   data() {
     return {
-      Step: 1,
+      Step: 2,
       pattern: null,
       sendImage: false,
     };

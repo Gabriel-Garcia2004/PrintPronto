@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="upload">
-      <input type="file" @change="uploadFile()" name="file" ref="file" value="Enviar foto" class="upload__button" /> 
+      <label class="upload__label" for="file" value="Enviar foto">Escolher arquivo</label>
+      <span v-if="!submitFile()" class="upload__span">Nenhum arquivo selecionado</span>
+      <input type="file" @change="uploadFile()"  id="file" name="file" ref="file" value="Enviar foto" class="upload__button" /> 
     </div>
     <div class="text-container">
       <p class="text">Pode ser pelo celular ou pelo computador.</p>
@@ -21,6 +23,7 @@ export default {
       api: 'http://192.168.0.116:8080/',
       imageUrl: ''
     }
+    
   },
 
   methods: {
@@ -67,22 +70,41 @@ export default {
 .upload {
   border: 2px dashed rgba(255, 255, 255, 0.5);
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   padding: 2.5rem;
   max-width: 200px;
   margin-bottom: 20px;
 }
-.upload__button {
-  background-color: #98c7f7;
-  font-size: 10px;
+input[type="file"]{
+  display: none;
+}
+.upload__label {
+  background-color: #fff;
+  color: #333;
+  font-size: 13px;
   padding: 0.3125rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   outline: transparent;
   border-radius: 0.3125rem;
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  max-width: 150px;
+  width: 100%;
+  flex: 1;
 }
-.upload__button:hover {
+.upload__label:hover {
   border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.upload__span{
+  max-width: 150px;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  padding: 5px;
 }
 .text-container{
   text-align: center;

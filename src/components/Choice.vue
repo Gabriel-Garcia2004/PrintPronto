@@ -5,7 +5,7 @@
       <div v-if="frame.orientation === 'Horizontal'" class="frame">
         <figure class="container-img u-h">
           <div class="frame-img-H" :style="`background: url(${pattern})`">
-            <img class="animal-frame-h" :src="`${sendImage}/no-bg.png`" alt="Seu pet em exemplo de um quadro" />
+            <img class="animal-frame-h" :src="`${sendImage}/no-bg.png`"  alt="Seu pet em exemplo de um quadro" />
           </div>
         </figure>
       </div>
@@ -21,8 +21,11 @@
       <button class="button green" @click="frame.orientation = 'Horizontal'"> Horizontal </button>  
       <button class="button green" @click="frame.orientation = 'Vertical'"> Vertical </button>
     </div>
+    <div>
     <img class="choice-dog" src="../assets/images/dog.png">
     <button class="button-center button-cart" @click="addToCart"> Adicionar ao Carrinho</button>
+    </div>
+    <a href="#" class="link-choice">Fazer Novamente</a>
   </section>
 </template>
 
@@ -73,14 +76,16 @@ export default {
 }
 .choice-dog {
   width: 100%;
-  margin: 40px 0;
+  max-width: 550px;
+  margin: 40px auto;
+  display: grid;
 }
 .is-center {
   margin: 0 auto !important;
   text-align: center;
 }
 .frame-container {
-  display: grid;
+  /* display: grid; */
   gap: 20px;
 }
 .frame {
@@ -111,7 +116,7 @@ export default {
   background-repeat: no-repeat;
   background-color: #cccccc;
   background-size: cover;
-  background-position: 35%;
+  background-position: 38%;
   border-radius: 0.625rem;
   position: relative;
 
@@ -119,11 +124,11 @@ export default {
 .frame-img-H{
   background-repeat: no-repeat;
   background-size: cover;
-  width: 252px;
+  width: 255px;
   height: 207px;
   position: relative;
   top: 23px;
-  left: 28px;
+  left: 7px;
   display: grid;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   z-index: 100;
@@ -141,18 +146,18 @@ export default {
   background-image: url("../assets/images/Vertical.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 45%;
+  background-position: 50%;
   border-radius: 0.625rem;
   position: relative;
 }
 .frame-img-V {
   background-repeat: no-repeat;
   background-size: cover;
-  max-width: 197px;
+  max-width: 208px;
   height: 254px;
   position: relative;
   top: 22px;
-  left: 59px;
+  left: 36px;
   display: grid;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   z-index: 100;
@@ -186,10 +191,92 @@ export default {
     background: linear-gradient(0deg, #1b5168 -50%, #6ec1e4 100%);
 
 }
+.link-choice{
+  color: #fff;
+  font-size: 0.9375rem;
+  display: block;
+  margin: 5px auto;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s ease;
+
+}
+.link-choice:hover{
+  color: #1b5168;
+
+}
+@media (min-width: 330px) {
+  .frame-img-H{
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 258px;
+  height: 207px;
+  position: relative;
+  top: 23px;
+  left: 15px;
+  display: grid;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  z-index: 100;
+  margin: 0;
+}
+}
+@media (min-width: 375px) {
+  .frame-img-H{
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 252px;
+  height: 207px;
+  position: relative;
+  top: 23px;
+  left: 22px;
+  display: grid;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  z-index: 100;
+  margin: 0;
+}
+  .frame-img-V {
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 199px;
+  height: 254px;
+  position: relative;
+  top: 22px;
+  left: 50px;
+  display: grid;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  z-index: 100;
+}
+}
 @media (min-width: 650px) {
-  .frame-container {
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
-  }
+  .container-img {
+  max-width: 400px;
+  width: 100%;
+  height: 500px;
+}
+.frame-img-H{
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 252px;
+  height: 200px;
+  position: relative;
+  top: 30px;
+  left: 60px;
+  display: grid;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  z-index: 100;
+  margin: 0;
+}
+.frame-img-V {
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 245px;
+  height: 254px;
+  position: relative;
+  top: 22px;
+  left: 63px;
+  display: grid;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 
 }
 
