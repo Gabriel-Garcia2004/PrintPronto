@@ -1,41 +1,43 @@
 <template>
-  <section class="container">
-    <div v-if="!sendImage" class="wrapper">
-      <div class="bar">
+  <section class="container checkout">
+    <div v-if="Step >= 1" class="wrapper">
+      <!-- <div class="bar">
         <div class="number">
           <span>1</span>
         </div>
         <span class="title">Carregue a Foto Predileta do seu Pet</span>
-      </div>
-
+      </div> -->
       <Upload @loadImage="loadImage($event)" />
     </div>
 
-    <div v-if="sendImage">
-      <div class="bar">
+    <div v-if="Step >= 2"> 
+      <!-- <div class="bar">
         <div class="number">
           <span>2</span>
         </div>
         <span class="title">Escolha o fundo para o seu quadro</span>
-      </div>
+      </div> -->
+      <Picker :image="sendImage" @setPicker="setPicker($event)" />
+    </div>
 
-      <Picker :image="sendImage" />
-
-      <div class="bar">
+    <div v-if="Step >= 3"> 
+      <!-- <div class="bar">
         <div class="number">
           <span>3</span>
         </div>
-        <span class="title">SIMULAÇÃO DO PEDIDO</span>
-      </div>
+        <span class="title">Escolha o fundo para o seu quadro</span>
+      </div> -->
+      <Choice :sendImage="sendImage" :pattern="pattern" />
+    </div>
 
-      <Summary />
-      <div class="bar">
+    <div v-if="Step >= 4"> 
+      <!-- <div class="bar">
         <div class="number">
           <span>4</span>
         </div>
-        <span class="title">Escolha o fundo para o seu quadro</span>
-      </div>
-      <Choice />
+        <span class="title">SIMULAÇÃO DO PEDIDO</span>
+      </div> -->
+      <Summary />
     </div>
   </section>
 </template>
@@ -56,7 +58,9 @@ export default {
 
   data() {
     return {
-      sendImage: "true",
+      Step: 1,
+      pattern: null,
+      sendImage: false,
     };
   },
 
@@ -81,8 +85,13 @@ export default {
 
   methods: {
     loadImage(imageUrl) {
+      this.Step++
       this.sendImage = imageUrl;
     },
+    setPicker (background) {
+      this.Step++
+      this.pattern = background
+    }
   },
 };
 </script>
@@ -95,6 +104,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  color: white;
 }
 
 * {
@@ -103,11 +113,12 @@ body {
 .container {
   margin: 20px auto;
 }
-
-.wrapper {
-  width: 750px;
+.checkout {
+  background: linear-gradient(180deg,#6EC1E4 0%,#1B5168 300%);
 }
-
+.mb-0 {
+    margin-bottom: 0;
+}
 .bar {
   text-transform: uppercase;
   display: flex;

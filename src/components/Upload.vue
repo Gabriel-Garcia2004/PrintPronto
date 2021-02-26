@@ -9,7 +9,7 @@
         Faremos o recorte da foto do seu pet para usarmos na arte.
       </p>
     </div>
-    <button class="button" v-on:click="submitFile()">Enviar</button>
+    <button class="button mb-0" v-on:click="submitFile()">Enviar</button>
   </div>
 </template>
 
@@ -65,12 +65,13 @@ export default {
   padding: 0.625rem 0;
 }
 .upload {
-  border: 2px dashed rgba(0, 0, 0, 0.5);
+  border: 2px dashed rgba(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2.5rem;
   max-width: 200px;
+  margin-bottom: 20px;
 }
 .upload__button {
   background-color: #98c7f7;
@@ -89,6 +90,6 @@ export default {
   margin: 20px;
 }
 .text{
-    font-size: 1rem;
+  font-size: 0.90rem;
 }
 </style>

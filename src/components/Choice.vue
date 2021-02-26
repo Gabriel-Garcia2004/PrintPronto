@@ -1,33 +1,63 @@
 <template>
   <section class="choice">
-    <h2 class="choice-title">
-      ATENÇÃO! NÃO SE PREOCUPE, VAMOS ENTRAR EM CONTATO VIA WHATSAPP PARA
-      ALINHAMENTO FINAL DA ARTE JUNTO COM VOCÊ.
-    </h2>
+    <p class="is-center frame-title">Resultado {{ frame.orientation }}</p>
     <div class="frame-container">
-      <div class="frame">
-        <p class="frame-title">RESULTADO HORIZONTAL</p>
+      <div v-if="frame.orientation === 'Horizontal'" class="frame">
         <figure class="container-img u-h">
-          <div class="frame-img-H">
-            <img class="animal-frame-h" src="../assets/images/no-bg.png" alt="Seu pet em exemplo de um quadro" />
+          <div class="frame-img-H" :style="`background: url(${pattern})`">
+            <img class="animal-frame-h" :src="`${sendImage}/no-bg.png`" alt="Seu pet em exemplo de um quadro" />
           </div>
         </figure>
-        
-        <button class="button green">SELECIONAR</button>
       </div>
-      <div class="frame">
-        <p class="frame-title">RESULTADO VERTICAL</p>
+      <div v-if="frame.orientation === 'Vertical'" class="frame">
         <figure class="container-img u-v">
-        <div class="frame-img-V">
-            <img class="animal-frame-v" src="../assets/images/no-bg.png" alt="Seu pet em exemplo de um quadro" />
+        <div class="frame-img-V" :style="`background: url(${pattern})`">
+            <img class="animal-frame-v" :src="`${sendImage}/no-bg.png`" alt="Seu pet em exemplo de um quadro" />
           </div>
         </figure>
-        <button class="button green">SELECIONAR</button>
       </div>
     </div>
-    <button class="button-center">FECHAR PEDIDO</button>
+    <div class="picker" style="gap: 10px">
+      <button class="button green" @click="frame.orientation = 'Horizontal'"> Horizontal </button>  
+      <button class="button green" @click="frame.orientation = 'Vertical'"> Vertical </button>
+    </div>
+    <img class="choice-dog" src="../assets/images/dog.png">
+    <button class="button-center button-cart" @click="addToCart"> Adicionar ao Carrinho</button>
   </section>
 </template>
+
+<script>
+export default {
+  props: {
+    pattern: {
+      type: String,
+      default: 'https://i.pinimg.com/736x/80/76/91/8076913441130209adcc5e05c8bfb6db.jpg'
+    },
+    sendImage: {
+      type: String,
+      default: '/img/no-bg.5c94ee35.png'
+    }
+  },
+
+  data () {
+    return {
+      frame: {
+        sendImage: null,
+        pattern: null,
+        orientation: 'Horizontal'
+      },
+    }
+  },
+
+  methods: {
+    addToCart () {
+      this.frame.sendImage = this.sendImage
+      this.frame.pattern = this.pattern
+      alert(JSON.stringify(this.frame))
+    }
+  }
+}
+</script>
 
 <style>
 .choice-title {
@@ -41,6 +71,14 @@
   /* color: #6ec1e4; */
  color: #448cab;
 }
+.choice-dog {
+  width: 100%;
+  margin: 40px 0;
+}
+.is-center {
+  margin: 0 auto !important;
+  text-align: center;
+}
 .frame-container {
   display: grid;
   gap: 20px;
@@ -53,14 +91,14 @@
   width: 100%;
 }
 .frame-title {
-  border-radius: 50%;
-  background: linear-gradient(200deg, #98c7f7 -100%, #6ec1e4 100%);
-  padding: 20px;
+  border-radius: 40px;
+  background: #1b5168;
+  padding: 11px;
+  font-weight: 800;
   font-size: 1.125rem;
   margin: 10px;
   text-align: center;
   max-width: 300px;
-  width: 280px;
 }
 
 .container-img {
@@ -79,7 +117,6 @@
 
 }
 .frame-img-H{
-  background-image: url("https://i.pinimg.com/736x/80/76/91/8076913441130209adcc5e05c8bfb6db.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 252px;
@@ -87,7 +124,6 @@
   position: relative;
   top: 23px;
   left: 28px;
-  border-radius: 0.625rem;
   display: grid;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   z-index: 100;
@@ -110,7 +146,6 @@
   position: relative;
 }
 .frame-img-V {
-  background-image: url("https://i.pinimg.com/736x/80/76/91/8076913441130209adcc5e05c8bfb6db.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   max-width: 197px;
@@ -118,7 +153,6 @@
   position: relative;
   top: 22px;
   left: 59px;
-  border-radius: 0.625rem;
   display: grid;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   z-index: 100;
@@ -137,7 +171,7 @@
   padding: 15px;
   font-size: 1.125rem;
   font-weight: 700;
-  width: 50%;
+  width: 70%;
   border-radius: 0.625rem;
   font-weight: 500;
   border: 1px solid rgba(0, 0, 0, 0);
